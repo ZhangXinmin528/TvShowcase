@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.leanback.leanbackshowcase">
+
+    <uses-sdk tools:overrideLibrary="android.support.media.tv" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.providers.tv.permission.READ_EPG_DATA" />
+    <uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+
+    <application
+        android:name="com.leanback.leanbackshowcase.app.room.controller.app.SampleApplication"
+        android:allowBackup="true"
+        android:banner="@string/app_name"
+        android:icon="@mipmap/app_banner_sample_app"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Example.LeanbackLauncher">
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.MainActivity"
+            android:exported="true"
+            android:icon="@mipmap/app_banner_sample_app"
+            android:label="@string/app_name"
+            android:logo="@mipmap/app_banner_sample_app"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.page.PageAndListRowActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.Leanback.CustomTitle" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.wizard.WizardExampleActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.LeanbackWizard" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.settings.SettingsExampleActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.LeanbackPreferences" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.dialog.DialogExampleActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.LeanbackDialog" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.details.DetailViewExampleActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.LeanbackDetails" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.details.DetailViewExampleWithVideoBackgroundActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.LeanbackDetails" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.cards.CardExampleActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.LeanbackBrowse" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.grid.GridExampleActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.LeanbackVerticalGrid" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.grid.VideoGridExampleActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.LeanbackVerticalGrid" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.media.VideoExampleActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|layoutDirection"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/Theme.Example.Leanback" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.media.VideoExampleWithExoPlayerActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|layoutDirection"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/Theme.Example.Leanback" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.media.MusicExampleActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Example.LeanbackMusic" />
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.rows.DynamicVideoRowsActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Example.LeanbackBrowse">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="androidx.leanback.supportleanbackshowcase"
+                    android:path="/startapp"
+                    android:scheme="rowsnewapi" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.rows.VideoPlaybackActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="androidx.leanback.supportleanbackshowcase"
+                    android:pathPrefix="/playvideo"
+                    android:scheme="rowsnewapi" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.rows.ChannelPublishActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Leanback.GuidedStep" />
+
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.room.controller.overview.LiveDataRowsActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Example.LeanbackBrowse">
+
+        </activity>
+
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.room.controller.detail.LiveDataDetailActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Example.LeanbackDetails">
+
+        </activity>
+
+        <activity
+            android:name="com.leanback.leanbackshowcase.app.room.controller.search.SearchActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Leanback.Details.NoSharedElementTransition">
+
+        </activity>
+
+        <service
+            android:name="com.leanback.leanbackshowcase.app.media.MusicPlaybackService"
+            android:exported="false" />
+    </application>
+
+</manifest>
