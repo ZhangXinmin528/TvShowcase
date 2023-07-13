@@ -99,6 +99,13 @@
         "title": "LiveData Example",
         "localImageResource": "thumbnail_example_dialog",
         "description": "live data and room"
+      },
+      {
+        "id": 14,
+        "type": "DEFAULT",
+        "title": "Leanback Tab Example",
+        "localImageResource": "thumbnail_example_dialog",
+        "description": "Showcase of leanback tabs design and layouts"
       }
     ]
   }

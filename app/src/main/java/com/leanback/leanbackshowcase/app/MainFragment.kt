@@ -48,6 +48,7 @@ import androidx.leanback.widget.Row
 import androidx.leanback.widget.RowPresenter
 import com.google.gson.Gson
 import com.leanback.leanbackshowcase.R
+import com.leanback.leanbackshowcase.app.tabs.LeanbackTabsActivity
 
 class MainFragment : BrowseSupportFragment() {
     private var mRowsAdapter: ArrayObjectAdapter? = null
@@ -213,6 +214,14 @@ class MainFragment : BrowseSupportFragment() {
                 13 -> {
                     intent = Intent(
                         activity!!.baseContext, LiveDataRowsActivity::class.java
+                    )
+                    startActivity(intent)
+                    return
+                }
+
+                14 -> {
+                    intent = Intent(
+                        activity!!.baseContext, LeanbackTabsActivity::class.java
                     )
                     startActivity(intent)
                     return

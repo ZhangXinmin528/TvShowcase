@@ -14,11 +14,13 @@
 
 package com.leanback.leanbackshowcase.app.grid;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.leanback.app.VerticalGridFragment;
 
 import com.leanback.leanbackshowcase.R;
@@ -28,6 +30,7 @@ import com.leanback.leanbackshowcase.cards.presenters.VideoCardViewPresenter;
 import com.leanback.leanbackshowcase.models.VideoCard;
 import com.leanback.leanbackshowcase.models.VideoRow;
 import com.leanback.leanbackshowcase.cards.presenters.CardPresenterSelector;
+
 import androidx.leanback.widget.ArrayObjectAdapter;
 import androidx.leanback.widget.FocusHighlight;
 import androidx.leanback.widget.OnItemViewClickedListener;
@@ -37,12 +40,14 @@ import androidx.leanback.widget.PresenterSelector;
 import androidx.leanback.widget.Row;
 import androidx.leanback.widget.RowPresenter;
 import androidx.leanback.widget.VerticalGridPresenter;
+
 import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import java.nio.charset.StandardCharsets;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -81,6 +86,7 @@ public class VideoGridExampleFragment extends VerticalGridFragment implements
         setTitle(getString(R.string.video_grid_example_title));
         setupRowAdapter();
     }
+
     private void setupRowAdapter() {
         VerticalGridPresenter videoGridPresenter = new VerticalGridPresenter(ZOOM_FACTOR);
         videoGridPresenter.setNumberOfColumns(COLUMNS);
@@ -112,13 +118,15 @@ public class VideoGridExampleFragment extends VerticalGridFragment implements
     /**
      * Called when videos metadata are fetched from the url. The result of this fetch is returned
      * in the form of a JSON object.
+     *
      * @param jsonObj The json object containing the information about all the videos.
      */
     private void onFetchVideosInfoSuccess(JSONObject jsonObj) {
         try {
             String videoRowsJson = jsonObj.getString(TAG_CATEGORY);
+            Log.d("zxm==", "onFetchVideosInfoSuccess()..json:" + videoRowsJson);
             VideoRow[] videoRows = new Gson().fromJson(videoRowsJson, VideoRow[].class);
-            for(VideoRow videoRow : videoRows) {
+            for (VideoRow videoRow : videoRows) {
                 if (!categoryVideosMap.containsKey(videoRow.getCategory())) {
                     categoryVideosMap.put(videoRow.getCategory(), new ArrayList<VideoCard>());
                 }
@@ -133,6 +141,7 @@ public class VideoGridExampleFragment extends VerticalGridFragment implements
 
     /**
      * Called when an exception occurred while fetching videos meta data from the url.
+     *
      * @param ex The exception occurred in the asynchronous task fetching videos.
      */
     private void onFetchVideosInfoError(Exception ex) {
@@ -166,8 +175,10 @@ public class VideoGridExampleFragment extends VerticalGridFragment implements
     /**
      * Fetches videos metadata from urlString on a background thread. Callback methods are invoked
      * upon success or failure of this fetching.
+     *
      * @param urlString The json file url to fetch from
      */
+    @SuppressLint("StaticFieldLeak")
     private void fetchVideosInfo(final String urlString) {
 
         new AsyncTask<Void, Void, FetchResult>() {
@@ -221,7 +232,7 @@ public class VideoGridExampleFragment extends VerticalGridFragment implements
     @Override
     public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item,
                               RowPresenter.ViewHolder rowViewHolder, Row row) {
-        if (item instanceof  VideoCard) {
+        if (item instanceof VideoCard) {
             VideoCard itemCard = (VideoCard) item;
             List<String> videoSources = itemCard.getVideoSources();
             if (videoSources == null || videoSources.isEmpty()) {

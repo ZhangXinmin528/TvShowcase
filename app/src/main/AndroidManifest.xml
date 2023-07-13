@@ -14,13 +14,16 @@
     <uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
+    <!--触摸屏-->
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
+
     <uses-feature
         android:name="android.software.leanback"
         android:required="true" />
 
+    <!--Banner提供横幅，在主屏幕和应用启动节点显示。属性设置要求：横幅应该是 xhdpi 资源，尺寸为 320 x 180 像素。-->
     <application
         android:name="com.leanback.leanbackshowcase.app.room.controller.app.SampleApplication"
         android:allowBackup="true"
@@ -160,6 +163,11 @@
             android:theme="@style/Theme.Leanback.Details.NoSharedElementTransition">
 
         </activity>
+
+        <activity
+            android:name=".app.tabs.LeanbackTabsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Example.Leanback" />
 
         <service
             android:name="com.leanback.leanbackshowcase.app.media.MusicPlaybackService"

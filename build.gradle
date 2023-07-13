@@ -17,18 +17,24 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    apply from: 'versions.gradle'
-
-    addRepos(repositories)
+    repositories {
+        google()
+//        jcenter()
+        mavenCentral()
+    }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$versions.android_gradle_plugin"
-        classpath deps.kotlin.plugin
+        classpath "com.android.tools.build:gradle:7.1.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10"
     }
 }
 
 allprojects {
-    addRepos(repositories)
+    repositories {
+        google()
+//        jcenter()
+        mavenCentral()
+    }
 }
 
 task clean(type: Delete) {
@@ -37,6 +43,7 @@ task clean(type: Delete) {
 
 ext {
     supportLibVersion = "1.0.0"
+    leanbackVersion = "1.2.0-alpha02"
     daggerVersion = "2.21"
     materialVersion="1.0.0"
     testVersion = "1.2.0"

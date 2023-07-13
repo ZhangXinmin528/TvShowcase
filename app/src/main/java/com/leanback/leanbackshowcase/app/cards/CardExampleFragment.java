@@ -64,7 +64,7 @@ public class CardExampleFragment extends BrowseFragment {
 
     private void setupUi() {
         //设置Header显示状态
-        setHeadersState(HEADERS_HIDDEN);
+        setHeadersState(HEADERS_ENABLED);
         //当Header显示使时,拦截回退键
         setHeadersTransitionOnBackEnabled(true);
         setTitle(getString(R.string.card_examples_title));

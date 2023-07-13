@@ -22,5 +22,5 @@
         android:id="@+id/cardsFragment"
         android:name="com.leanback.leanbackshowcase.app.grid.VideoGridExampleFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></fragment>
+        android:layout_height="match_parent"/>
 </RelativeLayout>
