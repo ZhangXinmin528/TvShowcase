@@ -1,4 +1,4 @@
-package com.leanback.leanbackshowcase.app.tabs
+package com.leanback.leanbackshowcase.app.tabs.tabitem
 
 import android.os.Bundle
 import android.view.LayoutInflater

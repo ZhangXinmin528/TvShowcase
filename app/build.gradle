@@ -28,7 +28,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -53,12 +53,12 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
     }
     buildFeatures {
@@ -72,6 +72,12 @@ android {
     lintOptions {
         abortOnError false
     }
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "TvSample_${variant.versionName}_${variant.buildType.name}.apk"
+        }
+    }
+
 }
 
 dependencies {

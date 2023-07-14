@@ -1,4 +1,4 @@
-package com.leanback.leanbackshowcase.app.tabs
+package com.leanback.leanbackshowcase.app.tabs.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

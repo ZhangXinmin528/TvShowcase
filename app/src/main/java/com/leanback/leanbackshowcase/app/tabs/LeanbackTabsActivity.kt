@@ -12,5 +12,8 @@ class LeanbackTabsActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabs_example)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.tabs_container, LeanbackNavigationFragment.newInstance()).commit()
     }
 }

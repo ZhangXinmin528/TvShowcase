@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/tabs_fragment"
-        android:name="com.leanback.leanbackshowcase.app.tabs.LeanbackTabsFragment"
+    <FrameLayout
+        android:id="@+id/tabs_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
